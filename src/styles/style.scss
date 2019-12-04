@@ -1,14 +1,4 @@
-*,
-*:after,
-*:before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Open Sans", sans-serif;
-}
+@import "./base.scss";
 
 $--Accordion-trigger-color: #2a2c2f;
 $--Accordion-trigger-fontSize: 20px;
