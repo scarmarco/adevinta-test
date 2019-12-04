@@ -1,0 +1,85 @@
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+$--Accordion-trigger-color: #2a2c2f;
+$--Accordion-trigger-fontSize: 20px;
+$--Accordion-trigger-fontWeight: 600;
+$--Accordion-trigger-padding: 15px 20px;
+
+$--Accordion-content-padding: 20px;
+$--Accordion-content-backgroundColor: #fff;
+$--Accordion-content-expansionTime: 200ms;
+$--Accordion-content-opacityTime: 300ms;
+
+$--Accordion-text-color: #6f6f6f;
+
+.Accordion {
+  &-trigger {
+    position: relative;
+    font-size: $--Accordion-trigger-fontSize;
+    font-weight: $--Accordion-trigger-fontWeight;
+    cursor: pointer;
+    color: $--Accordion-trigger-color;
+    padding: $--Accordion-trigger-padding;
+    border: solid 1px mix($--Accordion-trigger-color, #fff, 20);
+    background-color: mix($--Accordion-trigger-color, #fff, 3);
+    user-select: none;
+    margin-top: -1px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: calc(50% - 3px);
+      right: 10px;
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid mix($--Accordion-trigger-color, #fff, 50);
+      transition: transform 200ms ease;
+    }
+
+    &:hover {
+      color: mix($--Accordion-trigger-color, #fff, 60);
+    }
+
+    &.is-active {
+      color: mix($--Accordion-trigger-color, #fff, 60);
+
+      &:before {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+
+  &-content {
+    padding: 0 $--Accordion-content-padding;
+    background-color: $--Accordion-content-backgroundColor;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: padding $--Accordion-content-expansionTime ease,
+      max-height $--Accordion-content-expansionTime ease,
+      opacity $--Accordion-content-opacityTime ease;
+
+    &.is-open {
+      max-height: 500px;
+      opacity: 1;
+      padding: 15px $--Accordion-content-padding;
+    }
+  }
+
+  &-text {
+    font-size: 14px;
+    color: $--Accordion-text-color;
+  }
+}
