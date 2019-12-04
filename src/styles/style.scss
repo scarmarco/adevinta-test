@@ -10,6 +10,7 @@ $--Accordion-content-backgroundColor: #fff;
 $--Accordion-content-expansionTime: 200ms;
 $--Accordion-content-opacityTime: 300ms;
 
+$--Accordion-text-fontSize: 14px;
 $--Accordion-text-color: #6f6f6f;
 
 .Accordion {
@@ -69,7 +70,7 @@ $--Accordion-text-color: #6f6f6f;
   }
 
   &-text {
-    font-size: 14px;
+    font-size: $--Accordion-text-fontSize;
     color: $--Accordion-text-color;
   }
 }
